@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfuentes <rfuentes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/12 15:55:56 by rfuentes          #+#    #+#             */
-/*   Updated: 2021/08/13 13:33:47 by rfuentes         ###   ########.fr       */
+/*   Created: 2021/08/13 11:44:52 by rfuentes          #+#    #+#             */
+/*   Updated: 2021/08/16 11:58:50 by rfuentes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	ft_ft(int *nbr)
+int	ft_strlen(char *str)
 {
-	*nbr = 42;
+	int	l;
+
+	l = 0;
+	while (*(str++) != '\0')
+	{
+		l++;
+	}
+	return (l);
 }
 
-int main()
+int	main()
 {
-    int entero;
-    int *puntero;
-    puntero = &entero;
-    ft_ft(puntero);
-	printf("%d", **puntero);
-    return 0;
+	printf("%d", ft_strlen("rfuentes"));
 }

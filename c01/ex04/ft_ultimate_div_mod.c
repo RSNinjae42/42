@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfuentes <rfuentes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/12 15:55:56 by rfuentes          #+#    #+#             */
-/*   Updated: 2021/08/13 13:33:47 by rfuentes         ###   ########.fr       */
+/*   Created: 2021/08/12 17:04:33 by rfuentes          #+#    #+#             */
+/*   Updated: 2021/08/13 14:14:03 by rfuentes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	ft_ft(int *nbr)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-	*nbr = 42;
-}
+	int	div;
+	int	mod;
 
+	div = *a / *b;
+	mod = *a % *b;
+	*a = div;
+	*b = mod;
+}
 int main()
 {
-    int entero;
-    int *puntero;
-    puntero = &entero;
-    ft_ft(puntero);
-	printf("%d", **puntero);
-    return 0;
+	int i;
+	int j;
+
+	i = 10;
+	j = 2;
+	ft_ultimate_div_mod(&i, &j);
+	printf("%d %d\n", i, j);
+	return 0;
 }

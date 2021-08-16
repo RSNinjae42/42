@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfuentes <rfuentes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/12 15:55:56 by rfuentes          #+#    #+#             */
-/*   Updated: 2021/08/13 13:33:47 by rfuentes         ###   ########.fr       */
+/*   Created: 2021/08/12 17:35:35 by rfuentes          #+#    #+#             */
+/*   Updated: 2021/08/16 11:55:54 by rfuentes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-void	ft_ft(int *nbr)
+void	ft_putchar(char c)
 {
-	*nbr = 42;
+	write(1, &c, 1);
 }
 
-int main()
+void	ft_putstr(char *str)
 {
-    int entero;
-    int *puntero;
-    puntero = &entero;
-    ft_ft(puntero);
-	printf("%d", **puntero);
-    return 0;
+	while (*str != '\0')
+	{
+		ft_putchar(*str);
+		str++;
+	}
+}
+
+int	main()
+{
+	ft_putstr("hola");
+	return 0;
 }

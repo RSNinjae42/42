@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfuentes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 12:07:17 by rfuentes          #+#    #+#             */
-/*   Updated: 2021/08/18 12:39:52 by rfuentes         ###   ########.fr       */
+/*   Created: 2021/08/17 17:57:21 by rfuentes          #+#    #+#             */
+/*   Updated: 2021/08/18 18:45:15 by rfuentes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h> 
+#include <unistd.h>
 #include <stdio.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_str_is_alpha(char *str)
 {
-	unsigned int	x;
+	while (str[0] != '\0')
+	{
+		if (!((str[0] >= 'A' && str[0] <= 'Z')
+				||	(str[0] >= 'a' && str[0] <= 'z')))
+			return (0);
+		str++;
+	}
+	return (1);
+}
 
-	x = 0;
-	while (src[x] && x < n)
-	{
-		dest[x] = src[x];
-		x++;
-	}
-	while (x < n)
-	{
-		dest[x] = '\0';
-		x++;
-	}
-	return (dest);
+int main()
+{
+	char	str[] = "arribaes53";
+	char	str1[] = "sbdhvysd";
+	int	x;
+	int	y;
+
+	x = ft_str_is_alpha(str);
+	y = ft_str_is_alpha(str1);
+	printf("LOL %i\n", str, x);
+	printf("LOL %i\n", y);
 }

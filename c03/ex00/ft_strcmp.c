@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfuentes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 12:07:17 by rfuentes          #+#    #+#             */
-/*   Updated: 2021/08/18 12:39:52 by rfuentes         ###   ########.fr       */
+/*   Created: 2021/08/18 11:23:35 by rfuentes          #+#    #+#             */
+/*   Updated: 2021/08/18 19:24:55 by rfuentes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h> 
+#include <unistd.h>
 #include <stdio.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_strcmp(char *s1, char *s2)
 {
-	unsigned int	x;
+	int	x;
 
 	x = 0;
-	while (src[x] && x < n)
+	while ((s1[x] && s2[x]) && s1[x] == s2[x])
 	{
-		dest[x] = src[x];
 		x++;
 	}
-	while (x < n)
-	{
-		dest[x] = '\0';
-		x++;
-	}
-	return (dest);
+	if (s1[x] == s2[x])
+		return (0);
+	else
+		return (s1[x] - s2[x]);
 }

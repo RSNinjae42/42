@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfuentes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 12:07:17 by rfuentes          #+#    #+#             */
-/*   Updated: 2021/08/18 12:39:52 by rfuentes         ###   ########.fr       */
+/*   Created: 2021/08/18 20:26:29 by rfuentes          #+#    #+#             */
+/*   Updated: 2021/08/18 20:31:38 by rfuentes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h> 
-#include <stdio.h>
-
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strstr(char *str, char *to_find)
 {
-	unsigned int	x;
+	int	x;
+	int	y;
 
 	x = 0;
-	while (src[x] && x < n)
+	while (str[x])
 	{
-		dest[x] = src[x];
+		y = 0;
+		while (str[x + y] && to_find[y] && str[x + y] == to_find[y])
+			y++;
+		if (!to_find[y])
+			return (str + x);
 		x++;
 	}
-	while (x < n)
-	{
-		dest[x] = '\0';
-		x++;
-	}
-	return (dest);
+	return (0);
 }

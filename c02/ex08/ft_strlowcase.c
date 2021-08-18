@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfuentes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rfuentes <rfuentes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 12:07:17 by rfuentes          #+#    #+#             */
-/*   Updated: 2021/08/18 12:39:52 by rfuentes         ###   ########.fr       */
+/*   Created: 2021/08/17 19:37:39 by rfuentes          #+#    #+#             */
+/*   Updated: 2021/08/17 19:47:02 by rfuentes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h> 
+#include <unistd.h>
 #include <stdio.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char *ft_strlowcase(char *str)
 {
-	unsigned int	x;
+	int	x;
 
 	x = 0;
-	while (src[x] && x < n)
+	while(str[x] != '\0')
 	{
-		dest[x] = src[x];
+		if(str[x] >= 'A' && str[x] <= 'Z')
+		{
+			str[x] += 32;
+		}
 		x++;
 	}
-	while (x < n)
-	{
-		dest[x] = '\0';
-		x++;
-	}
-	return (dest);
+	return (str);
+}
+
+int main()
+{
+	int	x;
+	ft_strlowcase(x);
+	printf("%s\n", x);
+	return (0);
 }

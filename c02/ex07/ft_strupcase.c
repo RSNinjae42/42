@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfuentes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rfuentes <rfuentes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 12:07:17 by rfuentes          #+#    #+#             */
-/*   Updated: 2021/08/18 12:39:52 by rfuentes         ###   ########.fr       */
+/*   Created: 2021/08/17 19:26:34 by rfuentes          #+#    #+#             */
+/*   Updated: 2021/08/17 19:45:50 by rfuentes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h> 
+#include <unistd.h>
 #include <stdio.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char *ft_strupcase(char *str)
 {
-	unsigned int	x;
+	int	x;
 
 	x = 0;
-	while (src[x] && x < n)
+	while(str[x] != '\0')
 	{
-		dest[x] = src[x];
+		if(str[x] >= 'a' && str[x] <= 'z')
+		{
+			str[x] -= 32;
+		}
 		x++;
 	}
-	while (x < n)
-	{
-		dest[x] = '\0';
-		x++;
-	}
-	return (dest);
+	return (str);
+}
+
+int main()
+{
+	char	x;
+	
+	x = "Todo mayuscuas";
+	ft_strupcase(x);
+	printf("%s\n", x);
+	return (0);
 }

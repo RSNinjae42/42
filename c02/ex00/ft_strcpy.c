@@ -6,7 +6,7 @@
 /*   By: rfuentes <rfuentes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 12:48:04 by rfuentes          #+#    #+#             */
-/*   Updated: 2021/08/17 12:06:53 by rfuentes         ###   ########.fr       */
+/*   Updated: 2021/08/19 16:40:28 by rfuentes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ char	*ft_strcpy(char *dest, char *src)
 		dest[x] = src[x];
 		x++;
 	}	
-	return (0);
+	return (dest);
 }

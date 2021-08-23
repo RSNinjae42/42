@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfuentes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kali <kali@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 12:07:17 by rfuentes          #+#    #+#             */
-/*   Updated: 2021/08/18 12:39:52 by rfuentes         ###   ########.fr       */
+/*   Created: 2021/08/23 00:10:37 by kali              #+#    #+#             */
+/*   Updated: 2021/08/23 00:22:03 by kali             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h> 
-#include <stdio.h>
+#include <unistd.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+void	ft_putstr(char *str)
 {
-	unsigned int	x;
+	char *x;
 
-	x = 0;
-	while (src[x] && x < n)
+	x = str;
+	while (*x != 0)
 	{
-		dest[x] = src[x];
+		write(1, x, 1);
 		x++;
 	}
-	while (x < n)
+	write(1, "\n", 1);
+}
+
+int	main(int a, char *b[])
+{
+	int	y;
+
+	y = 1;
+	while (y < a)
 	{
-		dest[x] = '\0';
-		x++;
+		ft_putstr(b[y]);
+		y++;
 	}
-	return (dest);
+	return (0);
 }

@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfuentes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kali <kali@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 12:07:17 by rfuentes          #+#    #+#             */
-/*   Updated: 2021/08/18 12:39:52 by rfuentes         ###   ########.fr       */
+/*   Created: 2021/08/22 23:50:58 by kali              #+#    #+#             */
+/*   Updated: 2021/08/23 00:06:33 by kali             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h> 
-#include <stdio.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+#include <unistd.h>
+
+int	main(int x, char **y)
 {
-	unsigned int	x;
+	int	a;
 
-	x = 0;
-	while (src[x] && x < n)
+	a = 0;
+	if (y > 0)
 	{
-		dest[x] = src[x];
-		x++;
+		while(y[0][a] != '\0')
+		{
+			write(1, &y[0][a], 1);
+			a++;
+		}
+		write(1, "\n", 1);
 	}
-	while (x < n)
-	{
-		dest[x] = '\0';
-		x++;
-	}
-	return (dest);
+	return (0);
 }
